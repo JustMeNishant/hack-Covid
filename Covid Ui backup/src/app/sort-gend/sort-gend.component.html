@@ -1,0 +1,43 @@
+<h2 style="text-align: center"> Get SortedEmployees By Gender</h2>
+<div class="pro_block">
+  <form #filterForm="ngForm" (submit)="onFormSubmit(filterForm)">
+    <label>Gender:</label>
+    <input type="text" name="gender" ngModel #gender="ngModel">
+  </form>
+</div><br />
+<div class="pro_block" style="text-align: center;">
+  <ul>
+<li><a routerLink="/sortedemp" >Back to All</a></li>
+<li><a routerLink="/sortedemppro" >Sorted By Project</a></li>
+<li><a routerLink="/sortedempday" >Sorted By Days Affected</a></li>
+<li><a routerLink="/dashboard" >Back to All</a></li>
+
+
+</ul>
+<div>
+  <table style="width:100%" id="employees">
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>City</th>
+      <th>Project</th>
+      <th>Gender</th>
+      <th>Applying Date</th>
+      <th>Days Affected</th>
+      <th>Status</th>
+      <th>Document</th>
+    </tr>
+    <tr *ngFor="let v of victimsArr">
+      <td>{{v.employee.id}}</td>
+      <td>{{v.employee.name}}</td>
+      <td>{{v.employee.city}}</td>
+      <td>{{v.employee.project}}</td>
+      <td>{{v.employee.gender}}</td>
+      <td>{{v.affectedDate}}</td>
+      <td>{{v.sickLeaves}}</td>
+      <td>{{v.status}}</td>
+      <td>{{v.docurl}}</td>
+    </tr>
+      </table>
+</div>
+</div>

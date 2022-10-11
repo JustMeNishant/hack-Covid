@@ -1,0 +1,35 @@
+<div style="text-align: center;">
+    <h3>Covid Situation Update: Benefits Availaition Form</h3>
+    <form #covidForm="ngForm" (submit)="onFormSubmit(covidForm)" style="width:50vw; margin-left: 25vw;">
+
+        <label>Employee Id: </label>
+        <input type="number" name="id" ngModel #id="ngModel" required pattern="[0-9]+"><br />
+
+        <span *ngIf="id.invalid && id.touched">
+            <small> Id is invalid</small>
+        </span><br />
+
+        <label>Affected Date :</label>
+        <input type="date" name="affectedDate" min="2022-07-11" max="2022-10-11" ngModel #affectedDate="ngModel"
+            (change)="checkDate(covidForm)" required><br />
+        <span *ngIf="status && affectedDate.touched">
+            <small> Date is invalid</small>
+        </span><br />
+
+    
+        <label>Dosages: </label>
+        <input type="number" name="dosages" ngModel #dosages="ngModel" required pattern="[2-4]"><br />
+        <span *ngIf="dosages.invalid && dosages.touched">
+            <small> Dosages should be greater than 2</small>
+        </span><br />
+
+        <label>Link to Document: </label>
+    <input type="text" name="docurl" ngModel #docurl="ngModel" required pattern="http(s?)(:\/\/)((www.)?)(([^.]+)\.)?([a-zA-z0-9\-_]+)(.com|.net|.gov|.org|.in)(\/[^\s]*)?+"><br />
+    <span *ngIf="docurl.invalid && docurl.touched">
+        <small> Invalid Url</small>
+    </span><br />
+
+        <!-- <input class="button" type="submit" (click)="confirm()" value="Submit Form" [disabled]="!covidForm.valid" in (click)> -->
+        <input class="button" type="submit" value="Submit Form" >
+    </form>
+</div>
